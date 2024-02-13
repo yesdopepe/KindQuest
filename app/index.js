@@ -1,5 +1,6 @@
 import { useRootNavigationState } from "expo-router";
 import { useRouter, useSegments } from "expo-router";
+import * as SplashScreen from 'expo-splash-screen';
 import { AuthStore } from "../store";
 import React from "react";
 import { Text, View } from "react-native";
@@ -22,13 +23,15 @@ const Index = () => {
       !inAuthGroup
     ) {
       // Redirect to the login page.
+      SplashScreen.hideAsync()
       router.replace("/login");
     } else if (isLoggedIn) {
       // go to tabs root.
+      SplashScreen.hideAsync()
       router.replace("/(tabs)/home");
     }
   }, [isLoggedIn, segments, navigationState?.key]);
 
-  return <View>{!navigationState?.key ? <Text>LOADING...</Text> : <></>}</View>;
+  return <></>;
 };
 export default Index;

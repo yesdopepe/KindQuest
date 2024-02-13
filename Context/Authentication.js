@@ -21,10 +21,10 @@ function useProtectedRoute(user) {
       !inAuthGroup
     ) {
       // Redirect to the sign-in page.
-      router.replace('/(auth)/');
+      router.replace('/login');
     } else if (user && inAuthGroup) {
       // Redirect away from the sign-in page.
-      router.replace('/(tabs)/home');
+      router.replace('/home');
     }
   }, [user, segments]);
 }

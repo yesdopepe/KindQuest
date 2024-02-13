@@ -8,13 +8,16 @@ export default function Layout() {
       });
     
       const onLayoutRootView = useCallback(async () => {
-        if (fontsLoaded || fontError) {
-          await SplashScreen.hideAsync();
+        if (fontsLoaded && !fontError) {
+          console.log('fonts loaded succesfully');
         }
       }, [fontsLoaded, fontError]);
     
       if (!fontsLoaded && !fontError) {
         return null;
       }
-return <Slot screenOptions={{headerShown: false }} initialRouteName='login' onLayoutRootView/>;
+return (
+  <Slot screenOptions={{headerShown: false }} initialRouteName='login' onLayoutRootView/>
+  )
+
 }

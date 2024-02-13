@@ -1,26 +1,21 @@
 import {View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native'
-import {Link, router} from 'expo-router'
-import Profile from '../../components/Profile'
+import {Link} from 'expo-router'
+//importing the needed components
+import Email from '../../components/Email'
 import Lock from '../../components/Lock'
 import FormSubmitButton from '../../components/FormSubmitButton'
-const SubmitForm = () => {console.log('hello')}
+import InputForm from '../../components/InputForm'
+
 export default function Login() {
-  
+  const SubmitForm = () => {}
   return (
 
     <View style={styles.container}>
       <Text style={styles.Header}>Welcome</Text>
       <Text style={styles.secondarytext}>Join the Circle of Goodness</Text>
       <View style={styles.container}>
-        <View style={styles.InputCon}>
-        <Profile style={styles.icon}/>
-        <TextInput style={styles.inputfield} placeholder='Email'/>
-        </View>
-        
-        <View style={styles.InputCon}>
-        <Lock style={styles.icon}/>
-        <TextInput style={styles.inputfield} placeholder='Password'/>
-        </View>
+        <InputForm placeholder='Email' Icon={Email}/>
+        <InputForm placeholder='Password' Icon={Lock}/>
         <Link href='/fpswd' style={styles.link}>Forgot your password?</Link>
         <TouchableOpacity style={styles.button} onPress={SubmitForm}>
           <Text style={{fontFamily:'space grotesk', fontSize:25, fontWeight:'700'}}>Kind in</Text>
@@ -50,19 +45,6 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         color: '#FFF',
       },
-      InputCon: {
-        marginHorizontal: 30,
-        height: 43,
-        flexDirection: 'row',
-        alignItems: 'center',
-        padding: 10,
-        backgroundColor: '#FFF',
-        borderRadius: 20,
-      },
-      inputfield: {
-        flex: 1,
-    height: 40,
-      },
       button: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -86,10 +68,6 @@ const styles = StyleSheet.create({
         fontSize: 15,
         color: "#161F51"
       },
-      icon: {
-        marginLeft: 10,
-        marginRight: 10,
-      }
 
 
 })
