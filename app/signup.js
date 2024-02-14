@@ -2,11 +2,11 @@ import React from 'react'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import {Link} from 'expo-router'
 // importing the needed custom components
-import InputForm from '../../components/InputForm'
-import Profile from '../../components/Profile'
-import Lock from '../../components/Lock'
-import Email from '../../components/Email'
-import FormSubmitButton from '../../components/FormSubmitButton'
+import InputForm from '../components/InputForm'
+import Profile from '../components/Profile'
+import Lock from '../components/Lock'
+import Email from '../components/Email'
+import FormSubmitButton from '../components/FormSubmitButton'
 
 
 
