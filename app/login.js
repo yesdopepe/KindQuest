@@ -1,5 +1,6 @@
-import {View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native'
+import {View, Text, StyleSheet, TouchableOpacity,Alert } from 'react-native'
 import {Link} from 'expo-router'
+import { useRef } from 'react'
 //importing the needed components
 import Email from '../components/Email'
 import Lock from '../components/Lock'
@@ -7,17 +8,24 @@ import FormSubmitButton from '../components/FormSubmitButton'
 import InputForm from '../components/InputForm'
 
 export default function Login() {
-  const SubmitForm = () => {}
+  const handleLogin = () => {
+    if (!emailRef.current || !passwordRef.current) {
+      Alert.alert("sign in" ,"Please fill in all fields");
+      return;
+    }
+  }
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
   return (
 
     <View style={styles.container}>
       <Text style={styles.Header}>Welcome</Text>
       <Text style={styles.secondarytext}>Join the Circle of Goodness</Text>
       <View style={styles.container}>
-        <InputForm placeholder='Email' Icon={Email}/>
-        <InputForm placeholder='Password' Icon={Lock}/>
+        <InputForm placeholder='Email' Icon={Email} onChangeText={value=>emailRef.current = value}/>
+        <InputForm placeholder='Password' Icon={Lock} onChangeText={value=>passwordRef.current = value} secureTextEntry={true}/>
         <Link href='/fpswd' style={styles.link}>Forgot your password?</Link>
-        <TouchableOpacity style={styles.button} onPress={SubmitForm}>
+        <TouchableOpacity style={styles.button} onPress={handleLogin}>
           <Text style={{fontFamily:'space grotesk', fontSize:25, fontWeight:'700'}}>Kind in</Text>
         <FormSubmitButton style={{marginLeft:10}}/>
       </TouchableOpacity>

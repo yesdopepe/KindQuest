@@ -28,14 +28,14 @@ export default fpswd
 
 const styles = StyleSheet.create({
     container: {
-        flex: 0,
+        flex: 1,
         alignItems: 'center',
         rowGap:25
       },
       Header: {
       marginTop: 150,
       fontFamily: 'space grotesk',
-      fontSize: 40,
+      fontSize: 55,
       fontWeight: '700',
       color: '#FFF',
       },

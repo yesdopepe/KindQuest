@@ -1,5 +1,5 @@
-import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import {useRef} from 'react'
+import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native'
 import {Link} from 'expo-router'
 // importing the needed custom components
 import InputForm from '../components/InputForm'
@@ -10,16 +10,26 @@ import FormSubmitButton from '../components/FormSubmitButton'
 
 
 
-const SubmitForm = () => {}
+
 const signup = () => {
+  const handleSignup = () => {
+    if (!emailRef.current || !passwordRef || !usernameRef || !matchpasswordRef) {
+      Alert.alert("sign up" ,"Please fill in all fields");
+      return;
+    }
+  }
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
+  const matchpasswordRef = useRef("");
+  const usernameRef = useRef("");
   return (
     <View style={styles.container}>
       <Text style={styles.Header}>Be a Part of Us</Text>
-      <InputForm placeholder='Username' Icon={Profile}/>
-      <InputForm placeholder='Email' Icon={Email}/>
-      <InputForm placeholder='Password' Icon={Lock}/>
-      <InputForm placeholder='Repeat password' Icon={Lock}/>
-      <TouchableOpacity style={styles.button} onPress={SubmitForm}>
+      <InputForm placeholder='Username' Icon={Profile} onChangeText={value => usernameRef = value}/>
+      <InputForm placeholder='Email' Icon={Email} onChangeText={value => emailRef = value}/>
+      <InputForm placeholder='Password' Icon={Lock} onChangeText={value => passwordRef = value} secureTextEntry={true}/>
+      <InputForm placeholder='Repeat password' Icon={Lock} onChangeText={value => matchpasswordRef = value} secureTextEntry={true}/>
+      <TouchableOpacity style={styles.button} onPress={handleSignup}>
           <Text style={{fontFamily:'space grotesk', fontSize:25, fontWeight:'700'}}>Kind in</Text>
         <FormSubmitButton style={{marginLeft:10}}/>
       </TouchableOpacity>
@@ -32,7 +42,7 @@ export default signup
 
 const styles = StyleSheet.create({
   container: {
-      flex: 0,
+      flex: 1,
       alignItems: 'center',
       rowGap:25
     },

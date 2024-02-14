@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View, TextInput } from 'react-native'
 import React from 'react'
 
-const InputForm = ({placeholder, Icon, IconStyle}) => {
+const InputForm = ({placeholder, Icon, onChangeText, secureTextEntry}) => {
   return (
     <View style={styles.InputCon}>
         {Icon && <Icon style={styles.icon} />}
-        <TextInput style={styles.inputfield} placeholder={placeholder} />
+        <TextInput style={styles.inputfield} placeholder={placeholder} onChangeText={onChangeText} secureTextEntry={secureTextEntry}/>
         </View>
   )
 }
