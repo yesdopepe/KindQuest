@@ -2,8 +2,8 @@ import { StyleSheet, Text, View,Image,TouchableOpacity } from 'react-native'
 import { Link } from 'expo-router'
 import React from 'react'
 //importing components
-import Email from '../../components/Email'
-import InputForm from '../../components/InputForm'
+import Email from '../components/Email'
+import InputForm from '../components/InputForm'
 
 const SubmitForm = () => {}
 
@@ -18,7 +18,7 @@ const fpswd = () => {
       <TouchableOpacity style={styles.button} onPress={SubmitForm}>
         <Text style={{fontFamily:'space grotesk', fontSize:15, fontWeight:'400', color:'#DCE1FE'}}>Reset your password</Text>
       </TouchableOpacity>
-      <Image source={require('../../images/humanfigure.png')} style={{width:200, height:200, alignSelf:'flex-start'}}/>
+      <Image source={require('../images/humanfigure.png')} style={{width:200, height:200, alignSelf:'flex-start'}}/>
     </View>
     
   )

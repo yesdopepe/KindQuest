@@ -1,10 +1,10 @@
 import {View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native'
 import {Link} from 'expo-router'
 //importing the needed components
-import Email from '../../components/Email'
-import Lock from '../../components/Lock'
-import FormSubmitButton from '../../components/FormSubmitButton'
-import InputForm from '../../components/InputForm'
+import Email from '../components/Email'
+import Lock from '../components/Lock'
+import FormSubmitButton from '../components/FormSubmitButton'
+import InputForm from '../components/InputForm'
 
 export default function Login() {
   const SubmitForm = () => {}
