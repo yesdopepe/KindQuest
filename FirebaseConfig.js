@@ -1,12 +1,13 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import dotenv from 'dotenv';
+import { getAuth, getReactNativePersistence, initializeAuth } from 'firebase/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getFirestore,collection } from 'firebase/firestore';
 
-dotenv.config();
+
 
 // Initialize Firebase
 const firebaseConfig = {
-    apiKey: process.env.APIKEY,
+    apiKey: 'AIzaSyAr3Rvz4X7l2khoW27g7MkAOO77H5abHHE',
     authDomain: "kindquest-1256c.firebaseapp.com",
     projectId: "kindquest-1256c",
     storageBucket: "kindquest-1256c.appspot.com",
@@ -15,6 +16,12 @@ const firebaseConfig = {
     measurementId: "G-1HT6CDEK4N"
   };
 
-export const Firebaseinit = initializeApp(firebaseConfig);
-export const FirebaseAuth = getAuth(Firebaseinit);
+export const app = initializeApp(firebaseConfig);
 
+export const auth = initializeAuth(app, {
+    persistence: getReactNativePersistence(AsyncStorage),
+})
+export const db = getFirestore(app)
+
+export const usersRef = collection(db, 'users')
+export const roomsRef = collection(db, 'rooms')

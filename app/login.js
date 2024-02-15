@@ -6,13 +6,22 @@ import Email from '../components/Email'
 import Lock from '../components/Lock'
 import FormSubmitButton from '../components/FormSubmitButton'
 import InputForm from '../components/InputForm'
+import { useAuth } from '../Context/authContext'
+
 
 export default function Login() {
-  const handleLogin = () => {
+  const { login } = useAuth();
+  const handleLogin = async () => {
     if (!emailRef.current || !passwordRef.current) {
       Alert.alert("sign in" ,"Please fill in all fields");
       return;
     }
+    let response = await login(emailRef.current, passwordRef.current);
+    console.log(response);
+    if (!response.response === 'success') {
+      Alert.alert("sign up", response.response);
+    }
+
   }
   const emailRef = useRef("");
   const passwordRef = useRef("");

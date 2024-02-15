@@ -7,28 +7,36 @@ import Profile from '../components/Profile'
 import Lock from '../components/Lock'
 import Email from '../components/Email'
 import FormSubmitButton from '../components/FormSubmitButton'
+import {useAuth} from '../Context/authContext'
 
 
 
 
 const signup = () => {
-  const handleSignup = () => {
-    if (!emailRef.current || !passwordRef || !usernameRef || !matchpasswordRef) {
+  const { Register } = useAuth();
+  const handleSignup = async () => {
+
+    if (!emailRef.current || !passwordRef || !usernameRef) {
       Alert.alert("sign up" ,"Please fill in all fields");
       return;
+    }
+    let response = await Register(emailRef.current, passwordRef.current,usernameRef.current, profileRef.current);
+    console.log(response);
+    if (!response.response === 'success') {
+      Alert.alert("sign up", response.response);
     }
   }
   const emailRef = useRef("");
   const passwordRef = useRef("");
-  const matchpasswordRef = useRef("");
+  const profileRef = useRef("");
   const usernameRef = useRef("");
   return (
     <View style={styles.container}>
       <Text style={styles.Header}>Be a Part of Us</Text>
-      <InputForm placeholder='Username' Icon={Profile} onChangeText={value => usernameRef = value}/>
-      <InputForm placeholder='Email' Icon={Email} onChangeText={value => emailRef = value}/>
-      <InputForm placeholder='Password' Icon={Lock} onChangeText={value => passwordRef = value} secureTextEntry={true}/>
-      <InputForm placeholder='Repeat password' Icon={Lock} onChangeText={value => matchpasswordRef = value} secureTextEntry={true}/>
+      <InputForm placeholder='Username' Icon={Profile} onChangeText={value => usernameRef.current = value}/>
+      <InputForm placeholder='Email' Icon={Email} onChangeText={value => emailRef.current = value}/>
+      <InputForm placeholder='Password' Icon={Lock} onChangeText={value => passwordRef.current = value} secureTextEntry={true}/>
+      <InputForm placeholder='profile' Icon={Lock} onChangeText={value => profileRef.current = value}/>
       <TouchableOpacity style={styles.button} onPress={handleSignup}>
           <Text style={{fontFamily:'space grotesk', fontSize:25, fontWeight:'700'}}>Kind in</Text>
         <FormSubmitButton style={{marginLeft:10}}/>
