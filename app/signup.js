@@ -21,9 +21,8 @@ const signup = () => {
       return;
     }
     let response = await Register(emailRef.current, passwordRef.current,usernameRef.current, profileRef.current);
-    console.log(response);
-    if (!response.response === 'success') {
-      Alert.alert("sign up", response.response);
+    if (!response.success) {
+      Alert.alert("sign up", response.data);
     }
   }
   const emailRef = useRef("");

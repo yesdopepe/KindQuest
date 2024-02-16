@@ -1,6 +1,6 @@
 import { createContext, useEffect,useContext } from "react";
 import { useState } from 'react';
-import {createUserWithEmailAndPassword,signInWithEmailAndPassword, onAuthStateChanged, signOut} from 'firebase/auth'
+import {createUserWithEmailAndPassword,signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile} from 'firebase/auth'
 import { auth, db } from "../FirebaseConfig";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { router } from "expo-router";
@@ -10,12 +10,21 @@ export const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(undefined);
+  const updateUserData = async (userID) => {
+    const docRef = doc(db, "users", userID);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      let data = docSnap.data();
+      setUser({...user, "username": data.username, "profileUrl": data.profilepic, "userId": data.uid})
+    }
+  }
   useEffect(() => {
     // onAuthStateChanged
     const unsub = onAuthStateChanged(auth, (user) => {
       if (user) {
         setIsAuthenticated(true);
         setUser(user);
+        updateUserData(user.uid);
       }
       else{
         setIsAuthenticated(false);
@@ -44,7 +53,6 @@ export const AuthContextProvider = ({ children }) => {
   const Register = async (email,password, username,profilepic) => {
     try {
       const response = await createUserWithEmailAndPassword(auth, email, password);
-      console.log('response.user:', response?.user);
       
       await setDoc(doc(db,"users", response?.user?.uid),{
         username: username,

@@ -5,7 +5,8 @@ import { Button, Text, View } from "react-native";
 import { useAuth } from "../../Context/authContext";
 
 const Index = () => {
-const { logout } = useAuth()
+const { logout, user } = useAuth()
+console.log(user)
 const handleLogout = async () => {
   await logout();
 }

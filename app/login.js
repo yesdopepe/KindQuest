@@ -17,7 +17,6 @@ export default function Login() {
       return;
     }
     let response = await login(emailRef.current, passwordRef.current);
-    console.log(response);
     if (!response.response === 'success') {
       Alert.alert("sign up", response.response);
     }
