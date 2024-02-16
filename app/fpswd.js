@@ -4,12 +4,13 @@ import React from 'react'
 //importing components
 import Email from '../components/Email'
 import InputForm from '../components/InputForm'
+import Theme from '../theme/Theme'
 
 const SubmitForm = () => {}
 
 const fpswd = () => {
   return (
-    
+    <Theme>
       <View style={styles.container}>
       <Text style={styles.Header}>Welp...</Text>
       <Text style={styles.secondarytext}>Get your password back fellow</Text>
@@ -20,7 +21,7 @@ const fpswd = () => {
       </TouchableOpacity>
       <Image source={require('../images/humanfigure.png')} style={{width:200, height:200, alignSelf:'flex-start'}}/>
     </View>
-    
+    </Theme>
   )
 }
 

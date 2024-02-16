@@ -7,7 +7,7 @@ import Lock from '../components/Lock'
 import FormSubmitButton from '../components/FormSubmitButton'
 import InputForm from '../components/InputForm'
 import { useAuth } from '../Context/authContext'
-
+import Theme from '../theme/Theme'
 
 export default function Login() {
   const { login } = useAuth();
@@ -25,7 +25,7 @@ export default function Login() {
   const emailRef = useRef("");
   const passwordRef = useRef("");
   return (
-
+<Theme>
     <View style={styles.container}>
       <Text style={styles.Header}>Welcome</Text>
       <Text style={styles.secondarytext}>Join the Circle of Goodness</Text>
@@ -40,6 +40,7 @@ export default function Login() {
       </View>
       <Link href='/signup' style={styles.link2}>Don't have an account? Sign up</Link>
     </View>
+    </Theme>
   )
 }
 const styles = StyleSheet.create({
@@ -74,7 +75,8 @@ const styles = StyleSheet.create({
         fontFamily: 'space grotesk',
         fontWeight: '400',
         fontSize: 15,
-        color: "#161F51"
+        color: "#161F51",
+        paddingRight: 10,
       },
       link2: {
         marginTop: 10,

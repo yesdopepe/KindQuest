@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
-import { Slot, useSegments, useRouter, Redirect } from 'expo-router';
+import { Slot, useSegments, useRouter, Redirect, Stack, Tabs } from 'expo-router';
 import { useAuth } from '../../Context/authContext'
 
 SplashScreen.preventAutoHideAsync()
@@ -16,5 +16,11 @@ export default function _layout() {
       return <Redirect href={'/login'}/>
       
     }
-  return <Slot/>
+  return (<Tabs>
+    <Tabs.Screen name="index" options={{headerShown: false, }}/>
+    <Tabs.Screen name="search" options={{ headerShown: false, }}/>
+    <Tabs.Screen name="community" options={{headerShown: false, }}/>
+    <Tabs.Screen name="notifications" options={{ headerShown: false, }}/>
+    <Tabs.Screen name="ranking" options={{ headerShown: false, }}/>
+  </Tabs>)
 }

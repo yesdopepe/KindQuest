@@ -8,6 +8,7 @@ import Lock from '../components/Lock'
 import Email from '../components/Email'
 import FormSubmitButton from '../components/FormSubmitButton'
 import {useAuth} from '../Context/authContext'
+import Theme from '../theme/Theme'
 
 
 
@@ -16,32 +17,38 @@ const signup = () => {
   const { Register } = useAuth();
   const handleSignup = async () => {
 
-    if (!emailRef.current || !passwordRef || !usernameRef) {
+    if (!emailRef.current || !passwordRef || !usernameRef || !passMatchRef) {
       Alert.alert("sign up" ,"Please fill in all fields");
       return;
     }
-    let response = await Register(emailRef.current, passwordRef.current,usernameRef.current, profileRef.current);
+    if (passwordRef.current !== passMatchRef.current) {
+      Alert.alert("sign up", "Passwords do not match");
+      return; 
+    }
+    let response = await Register(emailRef.current, passwordRef.current,usernameRef.current, null);
     if (!response.success) {
       Alert.alert("sign up", response.data);
     }
   }
   const emailRef = useRef("");
   const passwordRef = useRef("");
-  const profileRef = useRef("");
+  const passMatchRef = useRef("");
   const usernameRef = useRef("");
   return (
+    <Theme>
     <View style={styles.container}>
       <Text style={styles.Header}>Be a Part of Us</Text>
       <InputForm placeholder='Username' Icon={Profile} onChangeText={value => usernameRef.current = value}/>
       <InputForm placeholder='Email' Icon={Email} onChangeText={value => emailRef.current = value}/>
       <InputForm placeholder='Password' Icon={Lock} onChangeText={value => passwordRef.current = value} secureTextEntry={true}/>
-      <InputForm placeholder='profile' Icon={Lock} onChangeText={value => profileRef.current = value}/>
+      <InputForm placeholder='repeat password' Icon={Lock} onChangeText={value => passMatchRef.current = value}/>
       <TouchableOpacity style={styles.button} onPress={handleSignup}>
-          <Text style={{fontFamily:'space grotesk', fontSize:25, fontWeight:'700'}}>Kind in</Text>
+          <Text style={{fontFamily:'space grotesk', fontSize:25, fontWeight:'700'}}>Kind up</Text>
         <FormSubmitButton style={{marginLeft:10}}/>
       </TouchableOpacity>
       <Link href='/login' style={styles.link2}>Or you can use this</Link>
     </View>
+    </Theme>
   )
 }
 

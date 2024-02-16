@@ -1,4 +1,4 @@
-import { Slot } from 'expo-router';
+import { Slot, Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback } from 'react';
@@ -28,10 +28,7 @@ const MainLayout = () => {
 
   
   return (
-    <LinearGradient colors={['#000', '#161F51', '#7082E4', '#DFDEFF', '#DCE1FE']} style={styles.linearGradient}>
-        <Stars/>
-        <Slot />
-    </LinearGradient>
+        <Slot/>
   )
 }
 export default function RootLayout(){
@@ -44,8 +41,5 @@ export default function RootLayout(){
 const styles = StyleSheet.create({
   linearGradient: {
       flex: 1,
-      paddingLeft: 15,
-      paddingRight: 15,
-      borderRadius: 5
     },
 })
