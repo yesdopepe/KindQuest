@@ -38,8 +38,3 @@ export default function RootLayout(){
     </AuthContextProvider>
   )
 }
-const styles = StyleSheet.create({
-  linearGradient: {
-      flex: 1,
-    },
-})

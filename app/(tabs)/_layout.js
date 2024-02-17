@@ -7,6 +7,9 @@ import Search from '../../components/Search'
 import Community from '../../components/Community'
 import Notifications from '../../components/Notifications'
 import Ranking from '../../components/Ranking'
+
+
+
 SplashScreen.preventAutoHideAsync()
 export default function _layout() {
     const { isAuthenticated } = useAuth();

@@ -1,8 +1,8 @@
 import React from "react";
-import { Button, Text, View } from "react-native";
+import { Button, Text, View, FlatList } from "react-native";
 import { useAuth } from "../../Context/authContext";
 import Theme from "../../theme/Theme";
-
+import Carousal from "../../components/ImageSlider";
 
 
 const Index = () => {
@@ -13,9 +13,9 @@ const handleLogout = async () => {
 }
   return (
     <Theme>
-  <View style={{flex: 1, justifyContent: "center", alignContent:"center", fonSize: 50,}}>
+  <View style={{flex: 1, fonSize: 50,}}>
+    <Carousal height={300}/>
     <Text style={{fontSize: 50, textAlign:'center'}}>home</Text>
-    <Button title="Logout" onPress={handleLogout} />
   </View>
   </Theme>
   )
