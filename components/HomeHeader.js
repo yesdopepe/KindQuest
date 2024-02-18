@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import Profile from './HeaderProfileIcon'
 import ChatIcon from './ChatIcon'
@@ -8,7 +8,9 @@ const HomeHeader = () => {
     <View style={styles.container}>
     <Profile/>
     <Text style={styles.text}>KindQuest</Text>
-    <ChatIcon/>
+    <TouchableOpacity>
+        <ChatIcon/>
+    </TouchableOpacity>
     </View>
   )
 }
