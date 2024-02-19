@@ -1,16 +1,22 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import TaskIcon from './TaskIcon'
-
+import { router } from 'expo-router'
+import { useLocalSearchParams } from 'expo-router'
 
 const Task = (props) => {
+  const triggerTask = () => {
+    router.push({pathname:"taskScreen", params:{
+      data: props.text,
+    }});
+  }
   return (
     <View style={styles.container}>
        <View style={{flexDirection: 'row', justifyContent: 'center', gap: 10}}>
        <TaskIcon/>
       <Text style={{fontFamily:'space grotesk', fontSize:15, fontWeight:'500'}}>{props.text}</Text>
        </View>
-       <TouchableOpacity style={{backgroundColor:'#161F51', borderRadius:9, padding: 5}}>
+       <TouchableOpacity style={{backgroundColor:'#161F51', borderRadius:9, padding: 5}} onPress={triggerTask}>
         <Text style={{fontFamily:'space grotesk', fontSize:13, fontWeight:'400', color:"#fff"}}>Earn {props.KP}KP</Text> 
        </TouchableOpacity>
     </View>
