@@ -12,7 +12,6 @@ const SvgComponent = (props) => (
     <G filter="url(#a)">
       <Path
         fill= {props.focused ? "#101842": "#101842B8"}
-        fillOpacity={0.72}
         fillRule="evenodd"
         d="M7.719 11.153a7.435 7.435 0 1 1 14.87 0 7.435 7.435 0 0 1-14.87 0ZM15.153 0a11.152 11.152 0 1 0 6.461 20.24l5.236 5.237a1.858 1.858 0 0 0 2.628-2.629l-5.234-5.234A11.152 11.152 0 0 0 15.154.001Z"
         clipRule="evenodd"

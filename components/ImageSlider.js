@@ -113,6 +113,7 @@ export default function Carousal({
         pagingEnabled
         onMomentumScrollEnd={setIndex}
         onContentSizeChange={() => scrollView.current.scrollToEnd()}
+        showsHorizontalScrollIndicator={false}
       >
         <View style={styles.carousalContainer}>
           {data.map((item) => (
@@ -144,7 +145,7 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     position: "absolute",
-    bottom: 10,
+    bottom: 0,
     width: "100%",
     paddingLeft: 10,
     backgroundColor: "rgba(0, 0, 0, 0.4)",

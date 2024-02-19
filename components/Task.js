@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import TaskIcon from './TaskIcon'
 
@@ -10,7 +10,9 @@ const Task = (props) => {
        <TaskIcon/>
       <Text style={{fontFamily:'space grotesk', fontSize:15, fontWeight:'500'}}>{props.text}</Text>
        </View>
-
+       <TouchableOpacity style={{backgroundColor:'#161F51', borderRadius:9, padding: 5}}>
+        <Text style={{fontFamily:'space grotesk', fontSize:13, fontWeight:'400', color:"#fff"}}>Earn {props.KP}KP</Text> 
+       </TouchableOpacity>
     </View>
   )
 }
