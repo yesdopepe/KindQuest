@@ -5,7 +5,6 @@ import Theme from "../../theme/Theme";
 import Carousal from "../../components/ImageSlider";
 import HomeHeader from "../../components/HomeHeader";
 import Task from "../../components/Task";
-import { useNavigation } from "expo-router";
 import taskScreen from "../taskScreen"
 
 const data = [{id:1, text:"Help some cats", kp:1500 },{id:2, text:"Help some cats", kp:1500 },{id:3, text:"Help some cats", kp:1500 },{id:4, text:"Help some cats", kp:1500 },{id:5, text:"Help some cats", kp:1500 },{id:6, text:"Help some cats", kp:1500 },{id:7, text:"Help some cats", kp:1500 },{id:8, text:"Help some cats", kp:1500 }]
