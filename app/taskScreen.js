@@ -1,13 +1,16 @@
 import { Alert, Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
-import {Camera} from 'expo-camera'
+import {useRef}from 'react'
+import {Camera, CameraCapturedPicture, } from 'expo-camera'
 import { useLocalSearchParams } from 'expo-router';
 import Theme from '../theme/Theme';
 import HomeHeader from '../components/HomeHeader';
 import { router } from 'expo-router';
 
 
+
+
 const task = () => {
+  const cameraref = useRef()
 //ask for permission to use the camera,
 try {
   Camera.requestCameraPermissionsAsync();
@@ -17,7 +20,9 @@ try {
   router.back();
 }
   const takeaPicture = async() => {
-    
+    const options = { quality: 0.5, base64: true, skipProcessing: true };
+    const data = await cameraref.current.takePictureAsync(options);
+    console.log(data);
   }
   const data = useLocalSearchParams();
   return (
@@ -28,6 +33,7 @@ try {
       <Camera 
       style={styles.camera}
       type={Camera.Constants.Type.back}
+      ref={cameraref}
       >
         <TouchableOpacity style={styles.button} onPress={()=>router.back()}>
       <Text style={styles.text}>Back</Text>
