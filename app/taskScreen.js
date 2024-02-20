@@ -5,7 +5,7 @@ import { useLocalSearchParams } from 'expo-router';
 import Theme from '../theme/Theme';
 import HomeHeader from '../components/HomeHeader';
 import { router } from 'expo-router';
-
+import Taskinfo from '../components/Taskinfo';
 
 
 
@@ -20,7 +20,7 @@ try {
   router.back();
 }
   const takeaPicture = async() => {
-    const options = { quality: 0.5, base64: true, skipProcessing: true };
+    const options = { quality: 1, base64: true, skipProcessing: false };
     const data = await cameraref.current.takePictureAsync(options);
     console.log(data);
   }
@@ -29,7 +29,7 @@ try {
     
     <Theme>
       <HomeHeader/>
-      <Text style={styles.text}>task {data.data}</Text>
+      <Taskinfo data={data.data}/>
       <Camera 
       style={styles.camera}
       type={Camera.Constants.Type.back}

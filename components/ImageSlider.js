@@ -13,27 +13,27 @@ import {
 const DATA = [
   {
     id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-    title: "The most beutiful railway track!",
+    title: "Migrating species crucial to planet under threat, says UN",
     subtitle:
-      "This is a long subtitle. Which also can be used to display flashnews.",
+      "\"There has been a lack of attention for migratory species and if we don\'t succeed in turning this around, we will see extinction. There are species that are already on the edge\"",
     image:
-      "https://i.picsum.photos/id/524/700/500.jpg?hmac=PuAKCqRNlpa6_UJLeKABjXH9l3MFgsv-LHMm0bDfey4",
+      "https://ichef.bbci.co.uk/news/976/cpsprodpb/896D/production/_132618153_africanpenguin.jpg",
   },
   {
     id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-    title: "Memories lives in this home",
+    title: "World\'s first year-long breach of key 1.5C warming limit",
     subtitle:
-      "This is a long subtitle. Which also can be used to display flashnews.",
+      "For the first time, global warming has exceeded 1.5C across an entire year, according to the EU\'s climate service.",
     image:
-      "https://i.picsum.photos/id/193/700/500.jpg?hmac=q5QJ9ieureq_dXwwsUmh7ub2pN-V1arRrqpMV7czc9g",
+      "https://ichef.bbci.co.uk/news/976/cpsprodpb/D7C7/production/_132593255_chile-top-afp.jpg",
   },
   {
     id: "58694a0f-3da1-471f-bd96-145571e29d72",
-    title: "Snow and Fun! How can we forget",
+    title: "RHS Rosemoor plants Wollemia pines in conservation project",
     subtitle:
-      "This is a long subtitle. Which also can be used to display flashnews.",
+      "A Devon garden has become home to so-called dinosaur trees in a global conservation project.",
     image:
-      "https://i.picsum.photos/id/971/700/500.jpg?hmac=kNTldtPvd24NEOfvd39iwsRBun4As0dYChiWQuyCFo4",
+      "https://ichef.bbci.co.uk/news/976/cpsprodpb/49B4/production/_132686881_therosemoorteampostplanting-whatapriviledgetobepartofthisproject!-1.jpg",
   },
 ];
 
