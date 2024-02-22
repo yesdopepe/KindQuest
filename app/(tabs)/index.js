@@ -5,9 +5,13 @@ import Theme from "../../theme/Theme";
 import Carousal from "../../components/ImageSlider";
 import HomeHeader from "../../components/HomeHeader";
 import Task from "../../components/Task";
-import taskScreen from "../taskScreen"
 
-const data = [{id:1, text:"Help some cats", kp:1500 },{id:2, text:"Help some cats", kp:1500 },{id:3, text:"Help some cats", kp:1500 },{id:4, text:"Help some cats", kp:1500 },{id:5, text:"Help some cats", kp:1500 },{id:6, text:"Help some cats", kp:1500 },{id:7, text:"Help some cats", kp:1500 },{id:8, text:"Help some cats", kp:1500 }]
+
+const data = [{id:1, text:"Help 5 stray cats", kp:500 },
+{id:2, text:"throw 5 bottles in the recycling bin", kp:300 },
+{id:3, text:"Go to the nearest health facility and donate blood", kp:1000 },
+{id:4, text:"Visit an animal shelter, feed some animals", kp:500 },
+{id:5, text:"pick up plastic 5 plastic bags from the ground", kp:300 }]
 const renderItem = ({item}) => {
   return (
     <Task text={item.text} KP={item.kp}/>
