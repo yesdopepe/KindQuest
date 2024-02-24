@@ -33,18 +33,20 @@ try {
       
       {capturedImage ? (<>
       <Image source={{ uri: capturedImage }} style={styles.previewImage} />
+      <View style={styles.overlayContainer}>
       <Taskinfo data={data.data}/>
       <View style={{backgroundColor:'#161F51', borderRadius: 15, marginHorizontal: 20, padding: 10}}>
-        <Text style={{width:300, fontFamily:'space grotesk', fontSize:16, fontWeight:"500", color:"#DCE1FE" }}>Are you sure you want to upload this photo? You can’t change it after you upload it, so think about it again.</Text>
+        <Text style={styles.overlaytext}>Are you sure you want to upload this photo? You can’t change it after you upload it, so think about it again.</Text>
         </View>
-        <View style={styles.camera}>
-        <TouchableOpacity style={styles.button} onPress={()=>router.back()}>
-      <Text style={styles.text}>Back</Text>
+        <View style={styles.buttonrow}>
+        <TouchableOpacity style={styles.button} onPress={()=>setCapturedImage(null)}>
+      <Text style={styles.text}>take it again</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={takeaPicture}>
-      <Text style={styles.text}>take a picture</Text>
+      <TouchableOpacity style={styles.button} onPress={()=>router.back()}>
+      <Text style={styles.text}>submit</Text>
       </TouchableOpacity>
-        </View>
+      </View>
+      </View>
 
       </>) : (
         <>
@@ -91,8 +93,33 @@ button:{
     alignSelf: 'flex-end',
     marginBottom: 20
 },
+buttonrow:{
+flexDirection: 'row',
+justifyContent: 'space-evenly',
+},
 previewImage: {
-flex: 1,
-resizeMode: "cover",
+  flex: 1,
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: '30%',
+},
+overlaytext:{
+  width:300,
+ fontFamily:'space grotesk',
+fontSize:16,
+fontWeight:"500",
+color:"#DCE1FE" 
+},
+overlayContainer: {
+    position: 
+    'absolute',
+    top: '70%',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    flex: 1,
+    rowGap: 10,
 }
 });
