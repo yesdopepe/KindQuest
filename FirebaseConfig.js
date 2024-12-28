@@ -7,7 +7,7 @@ import { getFirestore,collection } from 'firebase/firestore';
 
 // Initialize Firebase
 const firebaseConfig = {
-    apiKey: 'AIzaSyAr3Rvz4X7l2khoW27g7MkAOO77H5abHHE',
+    apiKey: '',
     authDomain: "kindquest-1256c.firebaseapp.com",
     projectId: "kindquest-1256c",
     storageBucket: "kindquest-1256c.appspot.com",
